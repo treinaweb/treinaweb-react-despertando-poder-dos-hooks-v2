@@ -2,20 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function Counter() {
-  const [contador, setContador] = useState(0);
-  const [contador2, setContador2] = useState(0);
-  const botao = useRef();
+  const [contador, setContador] = useState(-1);
+  const [title, setTitle] = useState('');
 
   useEffect(() => {
-    console.log('1');
-    setContador2(contador2 + 5);
-  }, [contador]);
-
+    setContador(contador => contador + 1);
+  }, [title]);
 
   return (
     <div>
-      <button ref={botao} onClick={() => setContador(contador + 1)}>Contador1: {contador}</button>
-      <button onClick={() => setContador2(contador2 + 1)}>Contador2: {contador2}</button>
+      <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+      <button onClick={() => setContador(contador + 1)}>Contador: {contador}</button>
     </div>
   )
 }
