@@ -1,17 +1,16 @@
-import './App.css'
-import ThemeProvider from './data/ThemeProvider';
-import Teste from './ui/Teste';
-import Teste2 from './ui/Teste2';
+import { useState } from 'react';
+import './App.css';
 
 function App() {
+  const [contador, setContador] = useState(0);
+  const random = Math.random();
+
   return (
-    <ThemeProvider>
-      <div className="App">
-        <Teste />
-        <Teste2 />
-      </div>
-    </ThemeProvider>
-  );
+    <>
+    <button onClick={() => setContador(contador + 1)}>Contador: {contador}</button>
+    <h3>{random}</h3>
+    </>
+  )
 }
 
 export default App
